@@ -25,7 +25,6 @@ def send_polls():
 
 
 scheduler = BlockingScheduler()
-scheduler.add_job(send_polls, 'interval', minutes=1)
 scheduler.add_job(send_polls, 'cron', hour=10, minute=0, second=0)
 scheduler.start()
 

@@ -6,13 +6,15 @@ def send_poll_to_user(user_id):
     answer_options = ["До 16", "16-17", "17-18", "19-20", "20-21", "21-23"]
     formatted_date = datetime.today().strftime('%d.%m.%Y')
 
-    bot.send_poll(
+    message = bot.send_poll(
         chat_id=user_id,
         question=f"Кто будет в Норе {formatted_date}?",
         options=answer_options,
         allows_multiple_answers=True,
         is_anonymous=False
     )
+
+    bot.pin_chat_message(user_id, message.id)
 
 
 def send_polls():
